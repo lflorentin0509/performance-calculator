@@ -1,0 +1,653 @@
+<!--
+=========================================================
+PROJECT: Productivity Calculator
+AUTHOR: Leo Florentín
+GITHUB: lflorentin0509
+YEAR: 2026
+
+Developed and designed by Leo Florentín.
+=========================================================
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+   
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Calculadora de performance diaria para operaciones logísticas."
+    >
+ <meta name="author" content="Leo Florentín">
+<meta name="copyright" content="© 2026 Leo Florentín">
+
+    <meta
+        name="theme-color"
+        content="#090611"
+    >
+
+    <title>Performance Calculator</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="app">
+
+
+        <!-- =====================================
+             PANTALLA DE BIENVENIDA
+        ====================================== -->
+
+        <section
+            id="welcomeScreen"
+            class="screen active"
+        >
+
+            <div class="welcome-card">
+
+                <div class="logo">
+                    P
+                </div>
+
+
+                <p class="eyebrow">
+                    PERFORMANCE CALCULATOR
+                </p>
+
+
+                <h1>
+                    ¿Cómo terminaste
+                    <span>tu jornada?</span>
+                </h1>
+
+
+                <p class="description">
+                    Calculá tu performance diaria utilizando
+                    la Neta Sistémica que aparece en tu handheld.
+                </p>
+
+
+                <div class="input-group">
+
+                    <label for="nameInput">
+                        Para comenzar, ingresá tu nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nameInput"
+                        placeholder="Ej: Leo"
+                        maxlength="25"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <button
+                    id="startButton"
+                    class="primary-button"
+                    type="button"
+                >
+                    Comenzar
+                    <span>→</span>
+                </button>
+
+
+                <p
+                    id="nameError"
+                    class="error-message"
+                >
+                    Ingresá tu nombre para continuar.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             CALCULADORA
+        ====================================== -->
+
+        <section
+            id="calculatorScreen"
+            class="screen"
+        >
+
+            <div class="calculator-container">
+
+
+                <!-- HEADER -->
+
+                <header class="calculator-header">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            TU JORNADA
+                        </p>
+
+
+                        <h2 id="helloUser">
+                            Hola
+                        </h2>
+
+
+                        <p>
+                            Ingresá los datos de tu último proceso.
+                        </p>
+
+
+                        <!-- FECHA -->
+
+                        <div class="current-date">
+
+                            <span>
+                                JORNADA
+                            </span>
+
+                            <strong id="currentDate">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="changeUserButton"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Cambiar nombre
+                    </button>
+
+                </header>
+
+
+
+                <!-- =====================================
+                     FORMULARIO
+                ====================================== -->
+
+                <div class="calculator-card">
+
+
+                    <div class="form-grid">
+
+
+                        <!-- PROCESO -->
+
+                        <div class="input-group">
+
+                            <label for="processSelect">
+                                Proceso
+                            </label>
+
+
+                            <select id="processSelect">
+
+                                <option value="">
+                                    Seleccioná tu proceso
+                                </option>
+
+                                <option value="230">
+                                    Livianos (GM)
+                                </option>
+
+                                <option value="150">
+                                    Bulky (Large)
+                                </option>
+
+                                <option value="80">
+                                    Bultos (Oversize)
+                                </option>
+
+                                <option value="650">
+                                    Camionetas (Descarga)
+                                </option>
+
+                                <option value="450">
+                                    Chasis (Descarga)
+                                </option>
+
+                                <option value="400">
+                                    Semis (Descarga)
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- NETA SISTÉMICA -->
+
+                        <div class="input-group">
+
+                            <label for="netInput">
+                                Neta Sistémica
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="netInput"
+                                inputmode="decimal"
+                                placeholder="Ej: 314,2"
+                                autocomplete="off"
+                            >
+
+
+                            <small>
+                                Usá el número que aparece en tu handheld
+                                al finalizar.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         TARGET AUTOMÁTICO
+                    ====================================== -->
+
+                    <div class="target-box">
+
+                        <div>
+
+                            <span>
+                                TARGET DEL PROCESO
+                            </span>
+
+                            <strong id="targetDisplay">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <p>
+                            Se selecciona automáticamente según
+                            el proceso.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- CALCULAR -->
+
+                    <button
+                        id="calculateButton"
+                        class="primary-button calculate-button"
+                        type="button"
+                    >
+                        Calcular mi performance
+                        <span>→</span>
+                    </button>
+
+
+                    <p
+                        id="calculatorError"
+                        class="error-message"
+                    >
+                        Seleccioná un proceso e ingresá tu Neta Sistémica.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =====================================
+                     RESULTADO
+                ====================================== -->
+
+                <section
+                    id="resultCard"
+                    class="result-card hidden"
+                >
+
+
+                    <p class="result-label">
+                        TU PERFORMANCE DE HOY
+                    </p>
+
+
+
+                    <!-- =====================================
+                         GAUGE
+                    ====================================== -->
+
+                    <div class="performance-gauge">
+
+                        <svg
+                            class="gauge-svg"
+                            viewBox="0 0 220 220"
+                            aria-hidden="true"
+                        >
+
+                            <circle
+                                class="gauge-background"
+                                cx="110"
+                                cy="110"
+                                r="92"
+                            ></circle>
+
+
+                            <circle
+                                id="gaugeProgress"
+                                class="gauge-progress"
+                                cx="110"
+                                cy="110"
+                                r="92"
+                            ></circle>
+
+                        </svg>
+
+
+                        <div class="gauge-content">
+
+                            <span class="gauge-small">
+                                PERFORMANCE
+                            </span>
+
+
+                            <div
+                                id="performanceNumber"
+                                class="performance-number"
+                            >
+                                0,0%
+                            </div>
+
+
+                            <span
+                                id="gaugeDifference"
+                                class="gauge-difference"
+                            >
+                                VS TARGET
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ESTADO -->
+
+                    <div
+                        id="resultStatus"
+                        class="result-status"
+                    >
+                        TARGET CUMPLIDO
+                    </div>
+
+
+
+                    <!-- MENSAJE -->
+
+                    <h3 id="resultTitle">
+                        ¡Target cumplido!
+                    </h3>
+
+
+                    <p
+                        id="resultMessage"
+                        class="result-message"
+                    ></p>
+
+
+
+                    <!-- =====================================
+                         PROGRESO VS TARGET
+                    ====================================== -->
+
+                    <div class="target-progress">
+
+
+                        <div class="progress-header">
+
+                            <span>
+                                PROGRESO VS TARGET
+                            </span>
+
+                            <span id="progressText">
+                                0%
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="progress-track">
+
+                            <div
+                                id="progressBar"
+                                class="progress-bar"
+                            ></div>
+
+
+                            <div class="target-marker">
+
+                                <span>
+                                    TARGET
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="progress-scale">
+
+                            <span>0%</span>
+
+                            <span>100%</span>
+
+                            <span>150%+</span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         RESUMEN
+                    ====================================== -->
+
+                    <div class="stats">
+
+
+                        <div class="stat">
+
+                            <span>
+                                PROCESO
+                            </span>
+
+                            <strong id="resultProcess">
+                                —
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="stat">
+
+                            <span>
+                                NETA SIST.
+                            </span>
+
+                            <strong id="resultNet">
+                                —
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="stat">
+
+                            <span>
+                                TARGET
+                            </span>
+
+                            <strong id="resultTarget">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         ACCIONES
+                    ====================================== -->
+
+                    <div class="result-actions">
+
+
+                        <!-- COMPARTIR -->
+
+                        <button
+                            id="shareButton"
+                            class="share-button"
+                            type="button"
+                        >
+
+                            <span class="share-icon">
+                                ↗
+                            </span>
+
+                            <span id="shareButtonText">
+                                Compartir resultado
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- NUEVA JORNADA -->
+
+                        <button
+                            id="resetButton"
+                            class="secondary-button full-button"
+                            type="button"
+                        >
+                            Calcular otra jornada
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================================
+                     INFORMACIÓN DEL Q
+                ====================================== -->
+
+                <aside class="info-card">
+
+                    <div class="info-icon">
+                        !
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Importante sobre tu Q
+                        </h3>
+
+
+                        <p>
+                            Esta calculadora estima únicamente tu
+                            <strong>
+                                performance porcentual de esta jornada
+                            </strong>
+                            utilizando tu Neta Sistémica y el target
+                            del proceso seleccionado.
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                No sumes ni promedies directamente estos
+                                porcentajes para calcular tu Q.
+                            </strong>
+
+                            El resultado acumulado puede depender de factores
+                            como las horas trabajadas en cada proceso,
+                            ponderaciones y otros datos operativos.
+
+                        </p>
+
+
+                        <p class="info-highlight">
+                            Usá esta herramienta como referencia para saber
+                            cómo terminaste el día.
+                        </p>
+
+                    </div>
+
+                </aside>
+
+
+            </div>
+
+        </section>
+        <footer class="app-footer">
+    <p>
+        Diseñado y desarrollado por
+        <strong>Leo Florentín</strong>
+        <span>•</span>
+        2026
+    </p>
+</footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <footer class="site-footer">
+    <p>
+        © 2026 Leo Florentín · Desarrollado por Leo Florentín
+    </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+</body>
+
+</html>
